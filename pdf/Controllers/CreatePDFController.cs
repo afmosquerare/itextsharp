@@ -11,7 +11,7 @@ namespace pdf.Controllers
     {
 
         [HttpPost]
-        public IActionResult GenerateDocumentByTemplate(ModeloPlantilla m)
+        public IActionResult GenerateDocumentByTemplate(FacturaModel m)
         {
             if(m == null)
             {

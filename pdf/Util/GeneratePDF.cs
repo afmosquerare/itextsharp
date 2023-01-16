@@ -16,9 +16,9 @@ namespace pdf.Util
         {
             string filePath = @"Templates\";
 
-            string fileNameExisting = @"Ejemplo.pdf";
+            string fileNameExisting = @"Factura.pdf";
             
-            string fileNewName = @"Ejemplo_" + m.Cliente +"_"+ m.IdCliente.ToString().Trim() + ".pdf";
+            string fileNewName = @"Factura_" + m.Cliente.Trim() + ".pdf";
 
             string fullNewPath = filePath + fileNewName; 
 
@@ -37,11 +37,20 @@ namespace pdf.Util
                     AcroFields fields = stamper.AcroFields;
 
 
+                    var plazo = ((m.FechaVence - m.FechaFactura).TotalDays).ToString() + " Dias";
 
 
-                    fields.SetField("Nombre", m.Nombre);
-                    fields.SetField("Apellido", m.Apellido);
-                    fields.SetField("Documento", m.Documento);
+                    fields.SetField("Cliente", m.Cliente);
+                    fields.SetField("IdCliente", m.IdCliente.ToString());
+                    fields.SetField("DireccionCliente", m.DireccionCliente);
+                    fields.SetField("CiudadCliente", m.CiudadCliente);
+                    fields.SetField("TelefonoCliente", m.TelefonoCliente);
+                    fields.SetField("NumeroFactura", m.NumeroFactura);
+                    fields.SetField("FechaFactura", m.FechaFactura.ToString("yyyy-MM-dd"));
+                    fields.SetField("FormaDePago", m.FormaDePago);
+                    fields.SetField("FechaVence", m.FechaVence.ToString("yyyy-MM-dd"));
+                    fields.SetField("Plazo", plazo);
+
 
 
 

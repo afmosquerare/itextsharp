@@ -10,8 +10,7 @@
         public string NumeroFactura { get; set; }
         public DateTime FechaFactura { get; set; }
         public DateTime FechaVence { get; set; }
-        public DateTime FechaDePago { get; set; }
-        public string Plazo { get; set; }
+        public string FormaDePago { get; set; }
  
     }
 }
