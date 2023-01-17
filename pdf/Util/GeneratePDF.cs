@@ -65,36 +65,38 @@ namespace pdf.Util
                     var outer = new PdfPTable(1);
 
                     Font fontTable = new Font(Font.FontFamily.HELVETICA, 8);
-                    outer.WidthPercentage = 100;
-                    var header = new PdfPTable(21);
+                    Font fontHeader = new Font(Font.FontFamily.HELVETICA, 8, Font.BOLD);
+
                     var table = new PdfPTable(21);
                     table.WidthPercentage = 100;
 
                     var data = new List<string[]>
                     {
                         new [] {"Producto", "Cant", "Vr Unitario", "Subtotal", "IVA", "Total Pro"},
-                        new [] {"PAQUETE DE TRANSACCIONES DE LA PLATAFORMA EN LA NUBE - KIBOT","1","1.800.000", "1.800.000", "0","1.800.000"},
-                        new [] {"PAQUETE DE TRANSACCIONES DE LA PLATAFORMA EN LA NUBE - KIBOT","1","1.800.000", "1.800.000", "0","1.800.000"},
-                        new [] {"PAQUETE DE TRANSACCIONES DE LA PLATAFORMA EN LA NUBE - KIBOT","1","1.800.000", "1.800.000", "0","1.800.000"},
-                        new [] {"PAQUETE DE TRANSACCIONES DE LA PLATAFORMA EN LA NUBE - KIBOT","1","1.800.000", "1.800.000", "0","1.800.000"},
-                        new [] {"PAQUETE DE TRANSACCIONES DE LA PLATAFORMA EN LA NUBE - KIBOT","1","1.800.000", "1.800.000", "0","1.800.000"},
-                        new [] {"PAQUETE DE TRANSACCIONES DE LA PLATAFORMA EN LA NUBE - KIBOT","1","1.800.000", "1.800.000", "0","1.800.000"},
-                        new [] {"PAQUETE DE TRANSACCIONES DE LA PLATAFORMA EN LA NUBE - KIBOT","1","1.800.000", "1.800.000", "0","1.800.000"},
-                        new [] {"PAQUETE DE TRANSACCIONES DE LA PLATAFORMA EN LA NUBE - KIBOT","1","1.800.000", "1.800.000", "0","1.800.000"},
-                        new [] {"PAQUETE DE TRANSACCIONES DE LA PLATAFORMA EN LA NUBE - KIBOT","1","1.800.000", "1.800.000", "0","1.800.000"},
-                        new [] {"PAQUETE DE TRANSACCIONES DE LA PLATAFORMA EN LA NUBE - KIBOT","1","1.800.000", "1.800.000", "0","1.800.000"},
-                        new [] {"PAQUETE DE TRANSACCIONES DE LA PLATAFORMA EN LA NUBE - KIBOT","1","1.800.000", "1.800.000", "0","1.800.000"},
-                        new [] {"PAQUETE DE TRANSACCIONES DE LA PLATAFORMA EN LA NUBE - KIBOT","1","1.800.000", "1.800.000", "0","1.800.000"},
-                        new [] {"PAQUETE DE TRANSACCIONES DE LA PLATAFORMA EN LA NUBE - KIBOT","1","1.800.000", "1.800.000", "0","1.800.000"},
-                        new [] {"PAQUETE DE TRANSACCIONES DE LA PLATAFORMA EN LA NUBE - KIBOT","1","1.800.000", "1.800.000", "0","1.800.000"},
-                        new [] {"PAQUETE DE TRANSACCIONES DE LA PLATAFORMA EN LA NUBE - KIBOT","1","1.800.000", "1.800.000", "0","1.800.000"},
-                        new [] {"PAQUETE DE TRANSACCIONES DE LA PLATAFORMA EN LA NUBE - KIBOT","1","1.800.000", "1.800.000", "0","1.800.000"},
-                        new [] {"PAQUETE DE TRANSACCIONES DE LA PLATAFORMA EN LA NUBE - KIBOT","1","1.800.000", "1.800.000", "0","1.800.000"},
-                        new [] {"PAQUETE DE TRANSACCIONES DE LA PLATAFORMA EN LA NUBE - KIBOT","1","1.800.000", "1.800.000", "0","1.800.000"},
-                        new [] {"PAQUETE DE TRANSACCIONES DE LA PLATAFORMA EN LA NUBE - KIBOT","1","1.800.000", "1.800.000", "0","1.800.000"},
+                        new [] {"12345  PAQUETE DE TRANSACCIONES DE LA PLATAFORMA EN LA NUBE - KIBOT","1","1.800.000", "1.800.000", "0","1.800.000"},
+                        new [] {"12345  PAQUETE DE TRANSACCIONES DE LA PLATAFORMA EN LA NUBE - KIBOT","1","1.800.000", "1.800.000", "0","1.800.000"},
+                        new [] {"12345  PAQUETE DE TRANSACCIONES DE LA PLATAFORMA EN LA NUBE - KIBOT","1","1.800.000", "1.800.000", "0","1.800.000"},
+                        new [] {"12345  PAQUETE DE TRANSACCIONES DE LA PLATAFORMA EN LA NUBE - KIBOT","1","1.800.000", "1.800.000", "0","1.800.000"},
+                        new [] {"12345  PAQUETE DE TRANSACCIONES DE LA PLATAFORMA EN LA NUBE - KIBOT","1","1.800.000", "1.800.000", "0","1.800.000"},
+                        new [] {"12345  PAQUETE DE TRANSACCIONES DE LA PLATAFORMA EN LA NUBE - KIBOT","1","1.800.000", "1.800.000", "0","1.800.000"},
+                        new [] {"12345  PAQUETE DE TRANSACCIONES DE LA PLATAFORMA EN LA NUBE - KIBOT","1","1.800.000", "1.800.000", "0","1.800.000"},
+                        new [] {"12345  PAQUETE DE TRANSACCIONES DE LA PLATAFORMA EN LA NUBE - KIBOT","1","1.800.000", "1.800.000", "0","1.800.000"},
+
                     };
 
+                    var valorProductos = data.Count * 1800000;
+                    var valorIva = 0;
+                    var valorSubtotal = valorProductos + valorIva;
+                    var valorRetencion = 0;
+                    var valorTotal = valorSubtotal - valorRetencion;
+                    var concepto = "Paquete de transsaciones de la plataforma Paquete de transsaciones de la plataforma Paquete de transsaciones de la plataforma";
 
+                    fields.SetField("ValorProductos", valorProductos.ToString());
+                    fields.SetField("ValorIva", valorIva.ToString());
+                    fields.SetField("ValorSubtotal", valorSubtotal.ToString());
+                    fields.SetField("ValorRetencion", valorRetencion.ToString());
+                    fields.SetField("ValorTotal", valorTotal.ToString());
+                    fields.SetField("Concepto", concepto);
 
                     var indexRow = 0;
                     foreach (var row in data)
@@ -102,13 +104,21 @@ namespace pdf.Util
                         var indexCell = 0;
                         foreach (var cell in row)
                         {
-                            PdfPCell c = new PdfPCell(new Phrase(cell, fontTable));
-                            c.BorderWidthBottom = 0f;
-                            c.BorderWidthTop = 0f;
-                            c.BorderWidthLeft = 0f;
-                            c.BorderWidthRight = 0f;
-                            if (indexRow == 0)
+                            PdfPCell c;
+                            if (indexRow != 0)
                             {
+                                 c = new PdfPCell(new Phrase(cell, fontTable));
+                                c.BorderWidthBottom = 0f;
+                                c.BorderWidthTop = 0f;
+                                c.BorderWidthLeft = 0f;
+                                c.BorderWidthRight = 0f;
+                            }
+                            else
+                            {
+                                 c = new PdfPCell(new Phrase(cell, fontHeader));
+                                c.BorderWidthTop = 0f;
+                                c.BorderWidthLeft = 0f;
+                                c.BorderWidthRight = 0f;
                                 c.BorderWidthBottom = 1f;
                             }
 
