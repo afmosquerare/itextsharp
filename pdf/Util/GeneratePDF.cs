@@ -73,15 +73,22 @@ namespace pdf.Util
                     var data = new List<string[]>
                     {
                         new [] {"Producto", "Cant", "Vr Unitario", "Subtotal", "IVA", "Total Pro"},
-                        new [] {"12345  PAQUETE DE TRANSACCIONES DE LA PLATAFORMA EN LA NUBE - KIBOT","1","1.800.000", "1.800.000", "0","1.800.000"},
-                        new [] {"12345  PAQUETE DE TRANSACCIONES DE LA PLATAFORMA EN LA NUBE - KIBOT","1","1.800.000", "1.800.000", "0","1.800.000"},
-                        new [] {"12345  PAQUETE DE TRANSACCIONES DE LA PLATAFORMA EN LA NUBE - KIBOT","1","1.800.000", "1.800.000", "0","1.800.000"},
-                        new [] {"12345  PAQUETE DE TRANSACCIONES DE LA PLATAFORMA EN LA NUBE - KIBOT","1","1.800.000", "1.800.000", "0","1.800.000"},
-                        new [] {"12345  PAQUETE DE TRANSACCIONES DE LA PLATAFORMA EN LA NUBE - KIBOT","1","1.800.000", "1.800.000", "0","1.800.000"},
-                        new [] {"12345  PAQUETE DE TRANSACCIONES DE LA PLATAFORMA EN LA NUBE - KIBOT","1","1.800.000", "1.800.000", "0","1.800.000"},
-                        new [] {"12345  PAQUETE DE TRANSACCIONES DE LA PLATAFORMA EN LA NUBE - KIBOT","1","1.800.000", "1.800.000", "0","1.800.000"},
-                        new [] {"12345  PAQUETE DE TRANSACCIONES DE LA PLATAFORMA EN LA NUBE - KIBOT","1","1.800.000", "1.800.000", "0","1.800.000"},
-
+                        new [] {m.producto, m.cantidad, m.vlrUnitario, m.subtotal, m.iva, m.totalPro},
+                        new [] {m.producto, m.cantidad, m.vlrUnitario, m.subtotal, m.iva, m.totalPro},
+                        new [] {m.producto, m.cantidad, m.vlrUnitario, m.subtotal, m.iva, m.totalPro},
+                        new [] {m.producto, m.cantidad, m.vlrUnitario, m.subtotal, m.iva, m.totalPro},
+                        new [] {m.producto, m.cantidad, m.vlrUnitario, m.subtotal, m.iva, m.totalPro},
+                        new [] {m.producto, m.cantidad, m.vlrUnitario, m.subtotal, m.iva, m.totalPro},
+                        new [] {m.producto, m.cantidad, m.vlrUnitario, m.subtotal, m.iva, m.totalPro},
+                        new [] {m.producto, m.cantidad, m.vlrUnitario, m.subtotal, m.iva, m.totalPro},
+                        new [] {m.producto, m.cantidad, m.vlrUnitario, m.subtotal, m.iva, m.totalPro},
+                        new [] {m.producto, m.cantidad, m.vlrUnitario, m.subtotal, m.iva, m.totalPro},
+                        new [] {m.producto, m.cantidad, m.vlrUnitario, m.subtotal, m.iva, m.totalPro},
+                        new [] {m.producto, m.cantidad, m.vlrUnitario, m.subtotal, m.iva, m.totalPro},
+                        new [] {m.producto, m.cantidad, m.vlrUnitario, m.subtotal, m.iva, m.totalPro},
+                        new [] {m.producto, m.cantidad, m.vlrUnitario, m.subtotal, m.iva, m.totalPro},
+                        new [] {m.producto, m.cantidad, m.vlrUnitario, m.subtotal, m.iva, m.totalPro},
+                        new [] {m.producto, m.cantidad, m.vlrUnitario, m.subtotal, m.iva, m.totalPro}
                     };
 
                     var valorProductos = data.Count * 1800000;
